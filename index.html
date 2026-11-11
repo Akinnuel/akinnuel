@@ -1,0 +1,409 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="description" content="Akinwumi Emmanuel (Akinnuel) — industrial &amp; production engineer. Research, projects and stories."><meta property="og:title" content="akinnuel — Emmanuel Akinwumi"><meta property="og:description" content="Industrial &amp; production engineer. Research, projects and stories."><meta property="og:image" content="https://akinnuel.com/logo.jpg"><link rel="icon" href="logo.jpg"><title>Emmanuel Akinwumi — Engineering better decisions</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500;12..96,800&family=DM+Mono:wght@500&display=swap" rel="stylesheet">
+<style>
+:root{--bg:#0C0C0C;--fg:#F2F1EC;--inv:#F2F1EC;--inv2:#BDBBB2;--on:#0C0C0C;--sh:#55554F;--ln:rgba(242,241,236,.28);
+--sans:"Bricolage Grotesque",system-ui,sans-serif;--mono:"DM Mono",ui-monospace,monospace;
+box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}
+@media (prefers-color-scheme:light){:root:not([data-theme="dark"]){--bg:#F2F1EC;--fg:#0C0C0C;--inv:#0C0C0C;--inv2:#3A3A37;--on:#F2F1EC;--sh:#B9B7AE;--ln:rgba(12,12,12,.28)}}
+:root[data-theme="light"]{--bg:#F2F1EC;--fg:#0C0C0C;--inv:#0C0C0C;--inv2:#3A3A37;--on:#F2F1EC;--sh:#B9B7AE;--ln:rgba(12,12,12,.28)}
+*{box-sizing:border-box;margin:0}
+html{scroll-behavior:smooth}
+body{background:var(--bg);color:var(--fg);font:500 17px/1.5 var(--sans);overflow-x:hidden}
+a{color:inherit;text-decoration:none}
+.w{max-width:1200px;margin:0 auto;padding:0 24px}
+.m{font:500 12px/1.3 var(--mono);text-transform:uppercase;letter-spacing:.06em}
+.top{border-bottom:3px solid var(--fg)}
+.bar{display:flex;align-items:center;gap:18px;padding:16px 0}
+.lg{font-weight:800;font-size:20px;letter-spacing:-.04em;background:var(--inv);color:var(--on);padding:4px 12px;border:3px solid var(--fg);box-shadow:4px 4px 0 var(--sh)}
+.pill{border:2px solid var(--fg);border-radius:99px;padding:6px 12px;display:flex;align-items:center;gap:8px}
+.pill b{width:7px;height:7px;border-radius:50%;background:var(--fg);animation:p 1.6s infinite}
+@keyframes p{50%{opacity:.25}}
+.links{display:flex;gap:6px;margin-left:auto}
+.links a{font:500 13px var(--mono);text-transform:uppercase;padding:8px 10px;border:2px solid transparent;border-radius:99px;transition:.15s}
+.links a:hover,.links a.on{border-color:var(--fg)}
+.cta{background:var(--inv);color:var(--on);font:500 13px var(--mono);text-transform:uppercase;padding:10px 16px;border-radius:99px;border:2px solid var(--fg);transition:.15s}
+.cta:hover{transform:translateY(-2px)}
+.bg{display:none;margin-left:auto;font:500 13px var(--mono);text-transform:uppercase;border:2px solid var(--fg);background:none;color:var(--fg);padding:8px 14px;border-radius:99px;cursor:pointer}
+.dr{display:none;flex-direction:column;border-top:2px solid var(--fg)}
+.dr.open{display:flex}
+.dr a{padding:16px 24px;border-bottom:1px solid var(--ln);font:800 28px var(--sans);text-transform:uppercase;letter-spacing:-.03em}
+.v{display:none;padding-bottom:10vh}.v.on{display:block}
+.crumb{padding:34px 0 0}
+h1{font:800 clamp(40px,7.6vw,104px)/.92 var(--sans);letter-spacing:-.05em;text-transform:uppercase}
+h1 em{font-style:italic;text-decoration:underline;text-decoration-thickness:.06em;text-underline-offset:.1em}
+.lede{max-width:600px;margin-top:26px;font-size:19px;opacity:.85}
+.hero{display:grid;grid-template-columns:1.5fr 1fr;gap:40px;padding:7vh 0 5vh;align-items:start}
+.badge{display:inline-block;border:2px solid var(--fg);padding:7px 12px;margin-bottom:26px}
+.btns{display:flex;gap:12px;flex-wrap:wrap;margin-top:32px}
+.btn{padding:14px 24px;border-radius:99px;border:3px solid var(--fg);font-weight:800;font-size:15px;text-transform:uppercase;transition:.15s}
+.btn.p{background:var(--inv);color:var(--on)}
+.btn:hover{transform:translateY(-3px);box-shadow:0 5px 0 var(--sh)}
+.box{background:var(--inv);color:var(--on);border:3px solid var(--fg);box-shadow:8px 8px 0 var(--sh);padding:22px}
+.box h4{font:500 12px var(--mono);text-transform:uppercase;display:flex;justify-content:space-between;padding-bottom:12px;border-bottom:2px solid var(--on)}
+.kv{display:grid;grid-template-columns:auto 1fr;gap:0 18px}
+.kv dt,.kv dd{padding:11px 0;border-bottom:2px dashed var(--on);margin:0}
+.kv dt{font:500 12px var(--mono);text-transform:uppercase;opacity:.65}
+.kv dd{font-weight:800;text-align:right;line-height:1.2}
+.kv dt:last-of-type,.kv dd:last-of-type{border:0}
+.grid{display:grid;grid-template-columns:1fr 1fr;gap:22px}
+.pil{display:flex;flex-direction:column;justify-content:space-between;gap:34px;min-height:230px;padding:26px;border:3px solid var(--fg);box-shadow:8px 8px 0 var(--sh);transition:.2s}
+.pil:hover{transform:translate(-3px,-3px);box-shadow:12px 12px 0 var(--sh);background:var(--inv);color:var(--on)}
+.pil span:first-child{font:500 14px var(--mono)}
+.pil h3{font:800 clamp(26px,3.4vw,40px)/1 var(--sans);letter-spacing:-.04em;text-transform:uppercase;display:flex;justify-content:space-between;gap:12px}
+.pil p{opacity:.8;margin-top:10px;font-size:16px}
+.quote{background:var(--inv);color:var(--on);padding:11vh 0;margin-top:11vh;border-block:3px solid var(--fg)}
+.quote p{font:800 clamp(28px,5vw,64px)/1.02 var(--sans);letter-spacing:-.045em;max-width:20ch}
+h2{font:800 clamp(30px,4.6vw,56px)/.95 var(--sans);letter-spacing:-.045em;text-transform:uppercase;margin:7vh 0 24px}
+.card{border:3px solid var(--fg);box-shadow:8px 8px 0 var(--sh);padding:26px}
+.card h3{font:800 clamp(24px,3vw,36px)/1 var(--sans);letter-spacing:-.04em;text-transform:uppercase;margin:12px 0}
+.card p{opacity:.82}
+.tags{display:flex;gap:8px;flex-wrap:wrap;margin-top:18px}
+.tags span{font:500 12px var(--mono);text-transform:uppercase;border:2px solid var(--fg);padding:6px 11px;border-radius:99px}
+.g3{display:grid;grid-template-columns:repeat(3,1fr);gap:22px}
+.g4{display:grid;grid-template-columns:repeat(4,1fr);gap:22px}
+.pg{margin-top:26px}
+.pg .t{display:flex;justify-content:space-between;margin-bottom:8px}
+.pg .b{height:22px;border:3px solid var(--fg)}
+.pg .b i{display:block;height:100%;background:var(--fg)}
+.stmt{max-width:760px;font-size:21px;line-height:1.4;margin-top:24px}
+.tl{border-left:3px solid var(--fg);margin:10px 0 0 8px}
+.tl div{position:relative;padding:0 0 34px 30px}
+.tl div::before{content:"";position:absolute;left:-10px;top:4px;width:17px;height:17px;background:var(--bg);border:3px solid var(--fg)}
+.tl h3{font:800 24px/1.1 var(--sans);letter-spacing:-.03em;text-transform:uppercase;margin:6px 0}
+.tl p{opacity:.8;max-width:560px}
+footer{border-top:3px solid var(--fg);padding:34px 0 44px}
+.fr{display:flex;justify-content:space-between;flex-wrap:wrap;gap:20px}
+.fr nav{display:flex;gap:18px;flex-wrap:wrap}
+.fr a:hover{text-decoration:underline}
+@media (prefers-reduced-motion:reduce){.pill b{animation:none}html{scroll-behavior:auto}}
+@media (max-width:900px){.links,.cta{display:none}.bg{display:block}.hero{grid-template-columns:1fr}.g3,.g4{grid-template-columns:1fr 1fr}}
+@media (max-width:620px){.grid,.g3,.g4{grid-template-columns:1fr}.pill{display:none}}
+.proof{display:grid;grid-template-columns:repeat(4,1fr);border:3px solid var(--fg)}.proof div{padding:20px;border-right:3px solid var(--fg)}.proof div:last-child{border:0}.proof b{display:block;font:800 clamp(30px,4.4vw,56px)/1 var(--sans);letter-spacing:-.04em;margin-bottom:8px}.proof span{font:500 12px/1.3 var(--mono);text-transform:uppercase;opacity:.8}
+.ph{border:3px dashed var(--fg);min-height:170px;display:grid;place-items:center;margin-top:18px;opacity:.55;text-align:center;padding:10px}
+@media (max-width:620px){.proof{grid-template-columns:1fr 1fr}.proof div:nth-child(2){border-right:0}.proof div:nth-child(-n+2){border-bottom:3px solid var(--fg)}}
+
+.prog{position:fixed;top:0;left:0;height:4px;width:0;background:var(--fg);z-index:60}
+[data-r]{opacity:0;transform:translateY(22px);transition:opacity .7s,transform .7s cubic-bezier(.2,.7,.2,1)}
+[data-r].in{opacity:1;transform:none}
+.v.on{animation:vin .45s cubic-bezier(.2,.7,.2,1)}@keyframes vin{from{opacity:0;transform:translateY(14px)}}
+.wd{display:inline-block;overflow:hidden;vertical-align:top;padding-bottom:.1em;margin-bottom:-.1em}
+.wd>span{display:inline-block;transform:translateY(110%);animation:up .8s cubic-bezier(.2,.7,.2,1) forwards}
+@keyframes up{to{transform:none}}
+.pil.wide{grid-column:1/-1;min-height:160px}
+.fig{position:relative;border:3px solid var(--fg);box-shadow:8px 8px 0 var(--sh);background:var(--inv2);overflow:hidden}
+.fig>img{display:block;width:100%;filter:grayscale(1) contrast(1.05);transition:filter .5s,transform .6s}
+.fig:hover>img,.fig.in-view>img{filter:none}
+img[data-zoom]{cursor:zoom-in}
+.stage{aspect-ratio:1666/2212}
+.stage>img{position:absolute;inset:0;height:100%;object-fit:contain;opacity:0;pointer-events:none;transition:opacity .5s,filter .5s}
+.stage>img.on{opacity:1;pointer-events:auto}
+.thumbs{display:flex;gap:10px;margin-top:18px}
+.thumbs button{flex:1;aspect-ratio:1;border:3px solid var(--fg);background:none;padding:0;cursor:pointer;opacity:.5;overflow:hidden;transition:.2s}
+.thumbs button.on,.thumbs button:hover{opacity:1}
+.thumbs img{width:100%;height:100%;object-fit:cover;display:block}
+.cap{margin-top:14px;opacity:.75}
+.hs{position:absolute;width:32px;height:32px;margin:-16px 0 0 -16px;border-radius:50%;border:3px solid var(--bg);background:var(--fg);color:var(--bg);font:800 14px var(--mono);cursor:pointer;z-index:2;padding:0}
+.hs::before{content:"";position:absolute;inset:-6px;border-radius:50%;border:2px solid var(--fg);animation:ring 1.8s infinite}
+@keyframes ring{to{transform:scale(1.7);opacity:0}}
+.hs i{position:absolute;left:42px;top:50%;transform:translateY(-50%) scale(.9);transform-origin:left;white-space:nowrap;background:var(--inv);color:var(--on);border:2px solid var(--fg);padding:6px 10px;font:500 11px var(--mono);text-transform:uppercase;font-style:normal;opacity:0;pointer-events:none;transition:.2s}
+.hs:hover i,.hs:focus i{opacity:1;transform:translateY(-50%)}
+.proj{display:grid;grid-template-columns:1fr 1fr;gap:48px;align-items:start;margin-top:7vh}
+.ph3{font:800 clamp(30px,4vw,52px)/.95 var(--sans);letter-spacing:-.045em;text-transform:uppercase;margin:12px 0 18px}
+.proj p{opacity:.85;font-size:18px}
+.scan>img{clip-path:inset(0 100% 0 0);transition:clip-path 1.5s cubic-bezier(.6,0,.2,1),filter .5s}
+.scan.in>img{clip-path:inset(0)}
+.cmp{position:relative;aspect-ratio:4/5;background:#fff;border:3px solid var(--fg);box-shadow:8px 8px 0 var(--sh);overflow:hidden;user-select:none;touch-action:pan-y}
+.cmp>img{position:absolute;inset:0;width:100%;height:100%;object-fit:contain}
+.cmp .a{clip-path:inset(0 50% 0 0)}
+.cmp .hd{position:absolute;top:0;bottom:0;left:50%;width:4px;margin-left:-2px;background:#0C0C0C;pointer-events:none}
+.cmp .hd::after{content:"↔";position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);width:46px;height:46px;border-radius:50%;background:#0C0C0C;color:#fff;display:grid;place-items:center;font-size:20px;border:3px solid #fff}
+.cmp input{position:absolute;inset:0;width:100%;height:100%;opacity:0;cursor:ew-resize;margin:0}
+.cmp .lb{position:absolute;top:10px;font:500 11px var(--mono);background:#0C0C0C;color:#fff;padding:5px 9px;text-transform:uppercase}
+.lb-o{position:fixed;inset:0;background:rgba(0,0,0,.93);z-index:100;display:none;align-items:center;justify-content:center;overflow:hidden;cursor:zoom-in}
+.lb-o.open{display:flex}
+.lb-o img{max-width:94vw;max-height:88vh;transition:transform .25s}
+.lb-o.z{cursor:zoom-out}.lb-o.z img{transform:scale(2.3)}
+.lb-x{position:fixed;top:calc(env(safe-area-inset-top,0px) + 16px);right:16px;width:44px;height:44px;border-radius:50%;border:2px solid #fff;background:none;color:#fff;font-size:18px;cursor:pointer;z-index:101}
+.jf{display:flex;gap:8px;flex-wrap:wrap;margin-top:30px}
+.jf button{font:500 12px var(--mono);text-transform:uppercase;border:2px solid var(--fg);background:none;color:var(--fg);padding:8px 14px;border-radius:99px;cursor:pointer}
+.jf button.on{background:var(--inv);color:var(--on)}
+.je .bd{display:none;margin-top:16px;padding-top:16px;border-top:2px dashed var(--fg)}
+.je.open .bd{display:block}
+.je button.rd{margin-top:18px;font:500 12px var(--mono);text-transform:uppercase;border:2px solid var(--fg);background:none;color:var(--fg);padding:8px 14px;border-radius:99px;cursor:pointer}
+.je img{width:100%;margin-top:16px;display:block}
+@media (max-width:900px){.proj{grid-template-columns:1fr;gap:32px}}
+@media (prefers-reduced-motion:reduce){[data-r]{opacity:1;transform:none;transition:none}.wd>span{animation:none;transform:none}.scan>img{clip-path:none;transition:none}.hs::before{animation:none}.v.on{animation:none}}
+.lg{display:flex;align-items:center;gap:10px;padding:4px 14px 4px 5px}.lgi{width:30px;height:30px;border-radius:50%;display:block}
+.hs.l i{left:auto;right:42px;transform-origin:right}
+.pq{position:relative;margin:5vh 0 6vh;padding-left:clamp(24px,5vw,64px);border-left:6px solid var(--fg)}
+.pq p{font:800 clamp(28px,4.8vw,62px)/1.02 var(--sans);letter-spacing:-.045em;max-width:20ch;opacity:1}
+.qm{position:absolute;left:clamp(18px,4vw,52px);top:-.62em;font:800 clamp(130px,19vw,250px)/1 var(--sans);opacity:.14;pointer-events:none}
+.soon{opacity:.45}
+.belt{position:relative;height:130px;margin-top:8vh;border-block:3px solid var(--fg);overflow:hidden}
+.bl{position:absolute;left:0;top:10px;opacity:.7}
+.trk{position:absolute;left:0;right:0;bottom:24px;height:6px;background:repeating-linear-gradient(90deg,var(--fg) 0 18px,transparent 18px 30px);animation:tr 1s linear infinite}
+@keyframes tr{to{background-position:30px 0}}
+.bx{position:absolute;bottom:30px;left:-60px;width:46px;height:46px;border:3px solid var(--fg);background:var(--inv);color:var(--on);font:500 12px/40px var(--mono);text-align:center;font-style:normal;animation:run 14s linear infinite}
+@keyframes run{to{left:100%}}
+.qc{position:absolute;left:50%;top:0;bottom:0;width:3px;background:var(--fg);opacity:.5;animation:qc 1.4s ease-in-out infinite alternate}
+@keyframes qc{to{opacity:.05}}
+.gr{position:absolute;bottom:4px;width:32px;height:32px;border-radius:50%;border:4px dashed var(--fg);animation:spin 3s linear infinite}
+.g1{left:14px}.g2{right:14px;animation-direction:reverse}
+@keyframes spin{to{transform:rotate(360deg)}}
+.beam{position:absolute;left:0;right:0;height:3px;background:var(--fg);box-shadow:0 0 18px 4px var(--fg);opacity:.85;z-index:1;pointer-events:none;animation:beam 4.5s ease-in-out infinite}
+@keyframes beam{0%,100%{top:0}50%{top:100%}}
+.hs.l::after{content:"";position:absolute;inset:-4px;border-radius:50%;border:2px solid var(--fg);pointer-events:none;animation:rip 2.4s ease-out infinite}
+@keyframes rip{from{transform:scale(1);opacity:.9}to{transform:scale(5);opacity:0}}
+.lg:hover .lgi{transform:rotate(360deg)}.lgi{transition:transform .9s cubic-bezier(.2,.7,.2,1)}
+.cur{position:fixed;left:0;top:0;width:34px;height:34px;margin:-17px 0 0 -17px;border:2px solid #fff;border-radius:50%;pointer-events:none;z-index:90;mix-blend-mode:difference;transition:width .2s,height .2s,margin .2s}
+.cur.big{width:64px;height:64px;margin:-32px 0 0 -32px}
+@media (prefers-reduced-motion:reduce){.trk,.bx,.qc,.gr,.beam,.hs.l::after{animation:none}.cur{display:none}}
+</style>
+</head>
+<body>
+<header class="top"><div class="w">
+ <div class="bar">
+  <a class="lg" href="#home"><img class="lgi" src="logo.jpg" alt="">akinnuel</a>
+  <span class="pill m"><b></b>Nigeria</span>
+  <nav class="links"><a href="#research">01 Research</a><a href="#projects">02 Projects</a><a href="#experience">03 Experience</a><a href="#cv">04 Background</a><a href="#personal">05 Personal</a></nav>
+  <a class="cta" href="#contact">Get in touch</a>
+  <button class="bg" id="bg" aria-expanded="false">Menu</button>
+ </div>
+</div>
+<nav class="dr" id="dr"><a href="#research">01 Research</a><a href="#projects">02 Projects</a><a href="#experience">03 Experience</a><a href="#cv">04 Background</a><a href="#personal">05 Personal</a><a href="#contact">Get in touch</a></nav>
+</header>
+
+<main class="w">
+<section class="v" id="v-home">
+ <div class="hero">
+  <div>
+   <span class="badge m">B.Eng · Industrial &amp; Production Engineering</span>
+   <h1 data-split>Hi, I’m Akinwumi. Call me <em>Akinnuel</em>.</h1>
+   <p class="lede">It’s a blend of both my names — and no, it isn’t a company. I’m an Industrial and Production Engineer who likes turning messy problems into systems people can actually use. Poke around: research, projects, and a few stories from outside the work.</p>
+   <div class="btns"><a class="btn p" href="#cv">View CV</a><a class="btn" href="#research">Explore research</a></div>
+  </div>
+  <div class="box" data-r>
+   <h4><span>Current focus</span><span>[2026]</span></h4>
+   <dl class="kv"><dt>Background</dt><dd>Industrial Engineering</dd><dt>Research</dt><dd>Decision science</dd><dt>Practice</dt><dd>Production planning</dd><dt>Projects</dt><dd>Engineering &amp; software</dd><dt>Seeking</dt><dd>Anything, honestly</dd></dl>
+  </div>
+ </div>
+  <div class="belt" aria-hidden="true"><span class="m bl">Process flow · always running</span><div class="trk"></div><i class="bx" style="animation-delay:0s">01</i><i class="bx" style="animation-delay:-3.5s">02</i><i class="bx" style="animation-delay:-7s">03</i><i class="bx" style="animation-delay:-10.5s">04</i><i class="qc"></i><i class="gr g1"></i><i class="gr g2"></i></div>
+ <div class="grid" style="margin-top:7vh">
+  <a class="pil" data-r href="#research"><span>01</span><div><h3>Research &amp; MCDM <b>↗</b></h3><p>Developing decision frameworks for complex, uncertain choices.</p></div></a>
+  <a class="pil" data-r href="#projects"><span>02</span><div><h3>Applied Projects <b>↗</b></h3><p>Engineering work spanning safety systems, facility layout and software.</p></div></a>
+  <a class="pil" data-r href="#experience"><span>03</span><div><h3>Experience <b>↗</b></h3><p>Production planning support and practical industrial engineering.</p></div></a>
+  <a class="pil" data-r href="#cv"><span>04</span><div><h3>Background <b>↗</b></h3><p>Education, technical skills and professional direction.</p></div></a>
+  <a class="pil wide" data-r href="#personal"><span>05</span><div><h3>Personal notes <b>↗</b></h3><p>Memories, milestones and stories beyond the work.</p></div></a>
+ </div>
+</section>
+
+<section class="v" id="v-research">
+ <div class="crumb m">01 / Research</div>
+ <h1 data-split style="margin-top:20px">Decisions under <em>uncertainty</em>.</h1>
+ <p class="stmt" data-r>I’m interested in how decision models can make complex choices more transparent. My work explores multi-criteria decision-making (MCDM), context-sensitive evaluation and risk filtering, with an emphasis on understanding why an alternative ranks well and when that ranking should be questioned.</p>
+ <h2 data-r>Research in development</h2>
+ <div class="grid">
+  <div class="card" data-r><span class="m">01 · Method development</span><h3>SubSense-MC</h3><p>A developing MCDM framework that modifies the MEREC-based weighting process and incorporates context-sensitive weighting and risk filtering. Current work focuses on formalising the method and conducting limited experimental validation.</p><div class="tags"><span>MEREC</span><span>CoCoSo</span><span>Context sensitivity</span><span>Risk filtering</span></div></div>
+  <div class="card" data-r><span class="m">02 · Risk management</span><h3>Optryx</h3><p>A risk-management model designed for decision-support software. Its job is to make sure the options a system recommends are not just high-scoring, but acceptable under risk. Currently in development.</p><div class="tags"><span>Risk management</span><span>Decision support</span><span>Software model</span></div></div>
+ </div>
+ <p class="m" data-r style="margin-top:26px;max-width:640px;line-height:1.6">Working papers are in preparation. Full methods are shared with reviewers, supervisors and collaborators on request.</p>
+ <h2 data-r>Tools &amp; methods</h2>
+ <div class="tags" data-r style="margin-top:0"><span>MCDM</span><span>Quantitative modelling</span><span>Python · developing</span><span>Excel</span><span>LaTeX</span></div>
+</section>
+
+<section class="v" id="v-projects">
+ <div class="crumb m">02 / Projects</div>
+ <h1 data-split style="margin-top:20px">Engineering in <em>practice</em>.</h1>
+
+ <div class="proj">
+  <div data-r>
+   <div class="fig stage tilt0" id="stage">
+    <img class="on" data-zoom src="back.jpg" alt="Rear view of the safety jacket with electronics enclosure and power bank">
+    <img data-zoom src="arms.jpg" alt="Jacket worn with arms extended">
+    <img data-zoom src="front.jpg" alt="Front view of the safety jacket">
+    <span class="beam"></span><button class="hs" style="left:58%;top:45%" aria-label="Electronics enclosure">1<i>Electronics enclosure</i></button>
+    <button class="hs" style="left:58%;top:57%" aria-label="Power bank">2<i>Power bank</i></button><button class="hs l" style="left:70%;top:39%" aria-label="UWB sensor on the shoulder">3<i>UWB sensor · shoulder</i></button>
+   </div>
+   <div class="thumbs" id="thumbs"><button class="on" aria-label="Rear view"><img src="back.jpg" alt=""></button><button aria-label="Arms extended"><img src="arms.jpg" alt=""></button><button aria-label="Front view"><img src="front.jpg" alt=""></button></div>
+   <p class="m cap" id="cap">Rear view · tap the markers · tap the photo to zoom</p>
+  </div>
+  <div data-r>
+   <span class="m">01 · Final-year project</span>
+   <h3 class="ph3">Underground miner safety jacket</h3>
+   <p>Developed an ESP32-based wearable safety-monitoring prototype integrating physiological sensing, temperature and humidity monitoring, and UWB positioning, including a shoulder-mounted sensor. Work included sensor integration, troubleshooting, system testing and a custom web dashboard hosted directly on the ESP32 to display live readings.</p>
+   <div class="tags"><span>ESP32</span><span>MAX30102</span><span>DHT11</span><span>MPU6050</span><span>SW-420</span><span>DW1000 UWB</span><span>On-device web dashboard</span></div>
+  </div>
+ </div>
+
+ <h2 data-r>Under the hood</h2>
+ <div class="grid">
+  <div data-r><div class="fig scan tilt" ><img data-zoom src="sa.jpg" alt="Wiring schematic: ESP32 with OLED display, buzzer and UWB module"></div><p class="m" style="margin-top:14px">Schematic 01 · ESP32, OLED display, buzzer, UWB module</p></div>
+  <div data-r><div class="fig scan tilt"><img data-zoom src="sb.jpg" alt="Wiring schematic: ESP32 with DHT11, SW-420, MPU6050, MAX30102 and UWB module"></div><p class="m" style="margin-top:14px">Schematic 02 · ESP32, DHT11, SW-420, MPU6050, MAX30102, UWB</p></div>
+ </div>
+
+ <div class="proj" style="margin-top:12vh">
+  <div data-r>
+   <div class="cmp" id="cmp"><img src="lnew.jpg" alt="Updated facility layout plan"><img class="a" src="lold.jpg" alt="Earlier facility layout draft"><span class="lb" style="left:10px">Earlier draft</span><span class="lb" style="right:10px">Updated plan</span><span class="hd"></span><input type="range" min="0" max="100" value="50" aria-label="Compare facility layouts"></div>
+   <p class="m cap">Drag to compare the earlier draft with the updated plan</p>
+  </div>
+  <div data-r>
+   <span class="m">02 · Industrial engineering</span>
+   <h3 class="ph3">Facility layout study</h3>
+   <p>Created a CAD-based facility layout showcasing product families and machine connectivity. The work is presented as a layout showcase of product families and machine connectivity, not as a completed quantitative optimisation study.</p>
+   <div class="tags"><span>CAD</span><span>Facility layout</span><span>Product families</span></div>
+  </div>
+ </div>
+
+ <h2 data-r>Software &amp; systems</h2>
+ <div class="grid">
+  <div class="card" data-r><span class="m">03 · Software interoperability</span><h3>OpenBox</h3><p>A software “box” that lets new applications connect with legacy software without rebuilding either side. The concept explores a compatibility layer that connects to existing systems, translates between their different structures and exposes a consistent interface to modern applications, reducing the repeated, one-off integration work that makes older systems hard to reuse.</p><div class="tags"><span>Interoperability</span><span>Legacy systems</span><span>Adapters</span><span>API design</span></div></div>
+  <div class="card" data-r><span class="m">04 · Decision-support product</span><h3>Manufacturing systems work</h3><p>Exploring how production-planning and operational decision problems can be translated into software requirements, structured data and computational workflows. Further public details are intentionally limited.</p><div class="tags"><span>Production planning</span><span>Decision support</span><span>Systems thinking</span></div></div>
+ </div>
+</section>
+
+<section class="v" id="v-experience">
+ <div class="crumb m">03 / Experience</div>
+ <h1 data-split style="margin-top:20px">Improving how work <em>flows</em>.</h1>
+ <p class="stmt" data-r>A record of responsibilities held in industrial and organisational settings, kept separate from independent projects and research.</p>
+ <h2 data-r>Industrial experience</h2>
+ <div class="card" data-r><span class="m">Industrial training · K Royal Nigeria Ltd.</span><h3>Production planning support</h3><p>Checked client-required production quantities and distributions, and prepared production breakdowns for more than 500 metres of requirements. The work involved translating order specifications into clear production quantities and length distributions.</p><div class="tags"><span>Production planning</span><span>Quantity checks</span><span>Order breakdowns</span></div></div>
+ <h2 data-r>Leadership &amp; coordination</h2>
+ <div class="card" data-r><span class="m">17 Nov 2025 — 28 Aug 2026</span><h3>Content Team Lead</h3><p><b>Syntellects · IPE CLASS’25.</b> Led content-team activities for the graduating class, including content planning, writing, coordinating contributors and documentation. This was a class-level leadership role, not a departmental appointment.</p><div class="tags"><span>Content planning</span><span>Writing</span><span>Coordination</span><span>Documentation</span></div></div>
+ <h2 data-r>How I work</h2>
+ <div class="pq" data-r><span class="qm">“</span><p>Every system is perfectly designed to get the results it gets. My work is to redesign the system.</p></div>
+ <div class="card" data-r><p>I approach work by clarifying the problem, organizing the available information, checking constraints and documenting decisions so that the next person can follow the reasoning.</p><div class="tags"><span>Structured analysis</span><span>Documentation</span><span>Problem-solving</span></div></div>
+</section>
+
+<section class="v" id="v-cv">
+ <div class="crumb m">04 / Background</div>
+ <h1 data-split style="margin-top:20px">Background &amp; <em>timeline</em>.</h1>
+ <p class="stmt" data-r>A recent Industrial and Production Engineering graduate building experience across research, production planning and applied engineering. I’m interested in opportunities where structured thinking and careful execution can support better operational decisions.</p>
+ <div class="btns"><a class="btn p" href="#cv">↓ Academic CV (scholarships)</a><a class="btn" href="#cv">↓ Industry résumé (jobs)</a></div>
+ <h2 data-r>Timeline</h2>
+ <div class="tl">
+  <div data-r><span class="m">2026 — Present</span><h3>Independent research &amp; project work</h3><p>Developing decision-analysis research and documenting applied engineering and software projects.</p></div>
+  <div data-r><span class="m">2026</span><h3>B.Eng completed</h3><p>Industrial &amp; Production Engineering, Federal University of Technology, Akure (FUTA). Final CGPA: 4.35/5.00.</p></div>
+  <div data-r><span class="m">17 December 2021</span><h3>Matriculation · FUTA</h3><p>Formally began the B.Eng. programme in Industrial &amp; Production Engineering.</p></div>
+ </div>
+ <h2 data-r>Skills</h2>
+ <div class="tags" data-r style="margin-top:0"><span>MCDM</span><span>Quantitative analysis</span><span>Python · basic</span><span>Excel</span><span>LaTeX</span><span>Production planning</span><span>CAD</span><span>Process analysis</span></div>
+</section>
+
+<section class="v" id="v-personal">
+ <div class="crumb m">05 / Personal notes</div>
+ <h1 data-split style="margin-top:20px">Beyond the <em>work</em>.</h1>
+ <p class="stmt" data-r>A personal journal of memories, people, milestones and moments worth keeping. This space is intentionally more personal than the rest of the portfolio, and the stories are written in my own words.</p>
+ <div class="jf" id="jf"></div>
+ <div class="grid" id="jl" style="margin-top:28px"></div>
+</section>
+
+<section class="v" id="v-contact">
+ <div class="crumb m">Contact</div>
+ <h1 data-split style="margin-top:20px">Let’s <em>talk</em>.</h1>
+ <p class="stmt" data-r>Open to research, scholarships, roles, collaborations — or just a good conversation. Honestly, send anything.</p>
+ <div class="btns"><a class="btn p" href="mailto:contact@akinnuel.com">contact@akinnuel.com</a></div>
+</section>
+</main>
+<div class="prog" id="prog"></div>
+<div class="lb-o" id="lbo"><button class="lb-x" id="lbx" aria-label="Close">✕</button><img alt=""></div>
+
+<footer><div class="w fr">
+ <div><div class="m">© 2026 Emmanuel Akinwumi</div><div class="m" style="margin-top:8px"><a href="mailto:contact@akinnuel.com">contact@akinnuel.com</a></div></div>
+ <nav class="m"><a href="#research">Research</a><a href="#projects">Projects</a><a href="#experience">Experience</a><a href="#cv">Background</a><a href="#personal">Personal</a></nav>
+ <nav class="m"><a href="https://x.com/akinnuel" target="_blank" rel="noopener">X</a><a href="https://www.linkedin.com/in/akinnuel" target="_blank" rel="noopener">LinkedIn</a><a href="https://github.com/akinnuel" target="_blank" rel="noopener">GitHub</a><span class="soon">Scholar · soon</span><span class="soon">ResearchGate · soon</span></nav>
+</div></footer>
+
+<script src="journal.js"></script>
+<script>
+(function(){
+var names=['home','research','projects','experience','cv','personal','contact'];
+var dr=document.getElementById('dr'),bgb=document.getElementById('bg');
+function show(){
+ var h=(location.hash||'#home').slice(1);if(names.indexOf(h)<0)h='home';
+ names.forEach(function(n){document.getElementById('v-'+n).classList.toggle('on',n===h)});
+ document.querySelectorAll('.links a').forEach(function(a){a.classList.toggle('on',a.getAttribute('href')==='#'+h)});
+ document.title=(h==='home'?'Emmanuel Akinwumi':h.charAt(0).toUpperCase()+h.slice(1)+' — Emmanuel Akinwumi');
+ dr.classList.remove('open');bgb.setAttribute('aria-expanded','false');window.scrollTo(0,0);
+}
+bgb.addEventListener('click',function(){var o=dr.classList.toggle('open');bgb.setAttribute('aria-expanded',o)});
+window.addEventListener('hashchange',show);
+
+/* split headlines into rising words */
+var k=0;
+function split(n){Array.prototype.slice.call(n.childNodes).forEach(function(c){
+ if(c.nodeType===3){var f=document.createDocumentFragment();c.textContent.split(/(\s+)/).forEach(function(w){
+  if(!w)return;if(/^\s+$/.test(w)){f.appendChild(document.createTextNode(' '));return}
+  var a=document.createElement('span');a.className='wd';var b=document.createElement('span');b.textContent=w;b.style.animationDelay=(k++*70)+'ms';a.appendChild(b);f.appendChild(a)});
+  n.replaceChild(f,c)}else if(c.nodeType===1){split(c)}})}
+document.querySelectorAll('[data-split]').forEach(function(h){k=0;split(h)});
+
+/* count-up */
+var rm=matchMedia('(prefers-reduced-motion:reduce)').matches,touch=matchMedia('(hover:none)').matches;
+function count(el){var to=parseFloat(el.dataset.to),d=+(el.dataset.d||0),sfx=el.dataset.s||'';
+ if(rm){el.textContent=to.toFixed(d)+sfx;return}
+ var t0=performance.now();(function f(t){var p=Math.min((t-t0)/1300,1),e=1-Math.pow(1-p,3);el.textContent=(to*e).toFixed(d)+(p===1?sfx:'');if(p<1)requestAnimationFrame(f)})(t0)}
+
+/* reveal observer */
+var io=new IntersectionObserver(function(es){es.forEach(function(e){var t=e.target;
+ if(e.isIntersecting&&(t.hasAttribute('data-r')||t.classList.contains('scan')))t.classList.add('in');
+ if(e.isIntersecting&&t.dataset.to&&!t.done){t.done=1;count(t)}
+ if(t.classList.contains('fig')&&touch)t.classList.toggle('in-view',e.isIntersecting)})},{threshold:.15});
+document.querySelectorAll('[data-r],.scan,[data-to],.fig').forEach(function(e){io.observe(e)});
+
+/* scroll progress */
+var pr=document.getElementById('prog');
+addEventListener('scroll',function(){var h=document.documentElement;pr.style.width=(h.scrollTop/((h.scrollHeight-h.clientHeight)||1)*100)+'%'},{passive:true});
+
+/* photo viewer */
+var st=document.getElementById('stage'),si=st.querySelectorAll(':scope>img'),th=document.querySelectorAll('#thumbs button'),hs=st.querySelectorAll('.hs'),cap=document.getElementById('cap');
+var caps=['Rear view · tap the markers · tap the photo to zoom','Arms extended','Front view'];
+th.forEach(function(b,i){b.addEventListener('click',function(){
+ si.forEach(function(m,j){m.classList.toggle('on',i===j)});th.forEach(function(x,j){x.classList.toggle('on',i===j)});
+ hs.forEach(function(h){h.style.display=i===0?'':'none'});cap.textContent=caps[i]})});
+
+/* tilt on schematics */
+if(!touch&&!rm)document.querySelectorAll('.tilt').forEach(function(el){
+ el.addEventListener('pointermove',function(e){var r=el.getBoundingClientRect(),x=(e.clientX-r.left)/r.width-.5,y=(e.clientY-r.top)/r.height-.5;el.style.transform='perspective(900px) rotateY('+x*7+'deg) rotateX('+(-y*7)+'deg)'});
+ el.addEventListener('pointerleave',function(){el.style.transform=''});el.style.transition='transform .2s'});
+
+/* compare slider */
+var cm=document.getElementById('cmp'),ci=cm.querySelector('input'),ca=cm.querySelector('.a'),ch=cm.querySelector('.hd');
+ci.addEventListener('input',function(){ca.style.clipPath='inset(0 '+(100-ci.value)+'% 0 0)';ch.style.left=ci.value+'%'});
+
+/* lightbox */
+var lo=document.getElementById('lbo'),li=lo.querySelector('img');
+document.addEventListener('click',function(e){var m=e.target.closest('img[data-zoom]');if(m&&!e.target.closest('.hs')){li.src=m.src;lo.classList.add('open');lo.classList.remove('z');li.style.transformOrigin='50% 50%'}});
+lo.addEventListener('click',function(e){if(e.target===li)lo.classList.toggle('z');else lo.classList.remove('open')});
+lo.addEventListener('pointermove',function(e){if(lo.classList.contains('z')){var r=li.getBoundingClientRect();li.style.transformOrigin=((e.clientX-r.left)/r.width*100)+'% '+((e.clientY-r.top)/r.height*100)+'%'}});
+document.getElementById('lbx').addEventListener('click',function(){lo.classList.remove('open')});
+addEventListener('keydown',function(e){if(e.key==='Escape')lo.classList.remove('open')});
+
+var jf=document.getElementById('jf'),jl=document.getElementById('jl'),pub=JOURNAL.filter(function(j){return j.published}),cur='All';
+function draw(){jl.innerHTML='';pub.filter(function(j){return cur==='All'||j.tag===cur}).forEach(function(j){
+ var c=document.createElement('article');c.className='card je';c.setAttribute('data-r','');c.className+=' in';
+ var m=document.createElement('span');m.className='m';m.textContent=(j.date?j.date+' · ':'')+j.tag;
+ var h=document.createElement('h3');h.textContent=j.title;var p=document.createElement('p');p.textContent=j.blurb;
+ var bd=document.createElement('div');bd.className='bd';
+ (j.body||'Story coming soon.').split('\n\n').forEach(function(t){var q=document.createElement('p');q.textContent=t;q.style.marginTop='10px';bd.appendChild(q)});
+ if(j.img){var im=document.createElement('img');im.src=j.img;im.alt=j.title;bd.appendChild(im)}
+ var r=document.createElement('button');r.className='rd';r.textContent='Read';r.addEventListener('click',function(){var o=c.classList.toggle('open');r.textContent=o?'Close':'Read'});
+ c.appendChild(m);c.appendChild(h);c.appendChild(p);c.appendChild(bd);c.appendChild(r);jl.appendChild(c)})}
+['All'].concat(pub.map(function(j){return j.tag}).filter(function(t,i,a){return a.indexOf(t)===i})).forEach(function(t){
+ var b=document.createElement('button');b.textContent=t;if(t==='All')b.className='on';
+ b.addEventListener('click',function(){cur=t;jf.querySelectorAll('button').forEach(function(x){x.classList.toggle('on',x===b)});draw()});jf.appendChild(b)});
+draw();
+if(!touch&&!rm){var cu=document.createElement('div');cu.className='cur';document.body.appendChild(cu);var cx=0,cy=0,tx=0,ty=0;
+ addEventListener('pointermove',function(e){tx=e.clientX;ty=e.clientY;cu.classList.toggle('big',!!e.target.closest('a,button,.cmp,img[data-zoom]'))});
+ (function f(){cx+=(tx-cx)*.18;cy+=(ty-cy)*.18;cu.style.transform='translate('+cx+'px,'+cy+'px)';requestAnimationFrame(f)})()}
+show();
+})();
+</script>
+</body>
+</html>
